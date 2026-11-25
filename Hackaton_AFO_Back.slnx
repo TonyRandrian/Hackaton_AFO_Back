@@ -1,1 +1,8 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="AFO.API/AFO.API.csproj" />
+    <Project Path="AFO.Application/AFO.Application.csproj" />
+    <Project Path="AFO.Domain/AFO.Domain.csproj" />
+    <Project Path="AFO.Infrastructure/AFO.Infrastructure.csproj" />
+  </Folder>
+</Solution>
