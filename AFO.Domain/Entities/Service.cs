@@ -10,5 +10,8 @@
         public string ServiceDescription { get; set; } = string.Empty;
         public string ExpertiseDescription { get; set; } = string.Empty;
         public string RealizationDescription { get; set; } = string.Empty;
+
+
+        private Service() { }
     }
 }
