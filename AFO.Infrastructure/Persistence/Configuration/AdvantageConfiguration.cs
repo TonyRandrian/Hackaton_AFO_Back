@@ -2,30 +2,30 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+namespace AFO.Infrastructure.Persistence.Configuration;
+
 public class AdvantageConfiguration : IEntityTypeConfiguration<Advantage>
 {
     public void Configure(EntityTypeBuilder<Advantage> builder)
     {
+        builder.ToTable("Advantages");
+
         builder.HasKey(a => a.Id);
-        builder.Property(a => a.Name).IsRequired().HasMaxLength(200);
-        builder.Property(a => a.Description).IsRequired().HasMaxLength(1000);
-    }
-}
 
-public class RealizationAdvantageConfiguration : IEntityTypeConfiguration<RealizationAdvantage>
-{
-    public void Configure(EntityTypeBuilder<RealizationAdvantage> builder)
-    {
-        builder.HasKey(x => new { x.RealizationId, x.AdvantageId });
+        builder.Property(a => a.Id)
+            .ValueGeneratedNever();
 
-        builder.HasOne(x => x.Realization)
-            .WithMany(r => r.RealizationAdvantages)
-            .HasForeignKey(x => x.RealizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(a => a.Name)
+            .IsRequired()
+            .HasMaxLength(200);
 
-        builder.HasOne(x => x.Advantage)
-            .WithMany(a => a.RealizationAdvantages)
-            .HasForeignKey(x => x.AdvantageId)
+        builder.Property(a => a.Description)
+            .IsRequired()
+            .HasMaxLength(1000);
+
+        builder.HasMany(a => a.RealizationAdvantages)
+            .WithOne(ra => ra.Advantage)
+            .HasForeignKey(ra => ra.AdvantageId)
             .OnDelete(DeleteBehavior.Restrict);
     }
-}   
+}
