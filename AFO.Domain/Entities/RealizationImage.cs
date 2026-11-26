@@ -13,5 +13,12 @@ namespace AFO.Domain.Entities
         public Guid RealizationImageTypeId { get; private set; }
         public RealizationImageType RealizationImageType { get; private set; } = null!;
         private RealizationImage() { }
+        public RealizationImage(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                throw new ArgumentException("L'image de la realisation est obligatoire");
+            Id = Guid.NewGuid();
+            Url = url;
+        }
     }                               
 }
