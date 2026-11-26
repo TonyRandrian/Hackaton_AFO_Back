@@ -7,7 +7,7 @@
         public int ServiceId { get; set; }
         public Service Service { get; set; } = null!;
         public ICollection<Pricing> Pricings { get; set; } = [];
-        public ICollection<>
+        public ICollection<Realization> Realizations { get; set; } = [];
 
         private ServiceContent() { }
     }

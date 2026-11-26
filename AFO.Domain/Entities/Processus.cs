@@ -10,7 +10,8 @@
         public string? Image { get; set; }
         public ICollection<string> Contents = [];
         public ICollection<ServiceProcessus> ServiceProcessus { get; set; } = [];
-        public ICollection<>
+        public ICollection<RealizationProcessus> RealizationProcessus { get; set; } = [];
+
 
         private Processus() { }
     }
