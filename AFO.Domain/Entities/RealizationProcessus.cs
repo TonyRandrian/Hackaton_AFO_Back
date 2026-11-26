@@ -2,7 +2,6 @@
 {
     public class RealizationProcessus
     {
-        public Guid Id { get; private set; }
         public Guid RealizationId { get; private set; }
         public Realization Realization { get; private set; } = null!;
 

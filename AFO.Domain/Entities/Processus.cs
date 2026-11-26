@@ -8,7 +8,7 @@
         public int Order { get; set; }
         public string? LogoUrl { get; set; }
         public string? Image { get; set; }
-        public ICollection<string> Contents = [];
+        public ICollection<string> Contents { get; set; } = [];
         public ICollection<ServiceProcessus> ServiceProcessus { get; set; } = [];
         public ICollection<RealizationProcessus> RealizationProcessus { get; set; } = [];
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AFO.Domain.Entities
+﻿namespace AFO.Domain.Entities
 {
     internal class ClientsRequests
     {
