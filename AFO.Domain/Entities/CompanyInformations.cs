@@ -2,6 +2,7 @@
 {
     public class CompanyInformations
     {
+        public Guid Id { get; set; }
         public required string Infos { get; set; }
         public required string Value { get; set; }
 
