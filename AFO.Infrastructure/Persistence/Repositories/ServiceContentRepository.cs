@@ -33,6 +33,11 @@ namespace AFO.Infrastructure.Persistence.Repositories
                 .ToListAsync();
         }
 
+        public Task<bool> HasRealizationAsync(Guid id)
+        {
+            return context.Realizations.AnyAsync(r => r.ServiceContentId == id);
+        }
+
         public async Task UpdateAsync(ServiceContent serviceContent)
         {
             context.ServiceContents.Update(serviceContent);

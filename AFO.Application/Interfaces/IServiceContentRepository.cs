@@ -9,6 +9,6 @@ namespace AFO.Application.Interfaces
         Task AddAsync(ServiceContent serviceContent);
         Task UpdateAsync(ServiceContent serviceContent);
         Task DeleteAsync(ServiceContent serviceContent);
-
+        Task<bool> HasRealizationAsync(Guid id);
     }
 }

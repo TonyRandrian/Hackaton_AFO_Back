@@ -10,4 +10,16 @@
     <ProjectReference Include="..\AFO.Domain\AFO.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Services\Commands\CreateService\" />
+    <Folder Include="Features\Services\Commands\UpdateService\" />
+    <Folder Include="Features\Services\Requests\" />
+    <Folder Include="Features\Services\Queries\GetServices\" />
+    <Folder Include="Features\Services\Queries\GetServiceById\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="15.0.0" />
+  </ItemGroup>
+
 </Project>
