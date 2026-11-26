@@ -5,7 +5,6 @@ using AFO.Application.Features.ServiceContents.Queries.GetServiceContentById;
 using AFO.Application.Features.ServiceContents.Queries.GetServiceContentsByServiceId;
 using AFO.Application.Features.ServiceContents.Requests;
 using AFO.Application.Features.ServiceContents.Responses;
-using AFO.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +22,7 @@ namespace AFO.API.Controllers
             return Ok(contents);
         }
 
-
+        [HttpGet("service-contents/{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
             ServiceContentResponse? content = await sender.Send(new GetServiceContentByIdQuery(id));
@@ -34,6 +33,7 @@ namespace AFO.API.Controllers
             return Ok(content);
         }
 
+        [HttpPost("services/{serviceId:guid}/contents")]
         public async Task<IActionResult> Create(Guid serviceId, CreateServiceContentRequest request)
         {
             Guid? id = await sender.Send(new CreateServiceContentCommand(serviceId, request.Name));
@@ -44,6 +44,7 @@ namespace AFO.API.Controllers
             return Created($"/api/service-contents/{id}", id);
         }
 
+        [HttpPut("service-contents/{id:guid}")]
         public async Task<IActionResult> Update(Guid id, UpdateServiceContentRequest request)
         {
             bool found = await sender.Send(new UpdateServiceContentCommand(id, request.Name));
@@ -54,6 +55,7 @@ namespace AFO.API.Controllers
             return NoContent();
         }
 
+        [HttpDelete("service-contents/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             bool found = await sender.Send(new DeleteServiceContentCommand(id));
