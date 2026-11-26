@@ -10,5 +10,6 @@
         public Guid ServiceId { get; set; }
         public Service Service { get; set; } = null!;
         public string? Image { get; set; }
+        public ICollection<BlogArticle> Articles { get; set; } = [];
     }
 }

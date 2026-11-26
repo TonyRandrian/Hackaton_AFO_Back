@@ -7,5 +7,6 @@
         public required string Content { get; set; }
         public Guid BlogId { get; set; }
         public Blog Blog { get; set; } = null!;
+        public ICollection<BlogArticleImages> Images { get; set; } = [];
     }
 }

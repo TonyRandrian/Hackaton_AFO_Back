@@ -35,7 +35,7 @@ namespace AFO.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
-
+           
         }
     }
 }
