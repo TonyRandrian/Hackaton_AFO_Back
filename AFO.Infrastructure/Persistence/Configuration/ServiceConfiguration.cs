@@ -14,25 +14,29 @@ namespace AFO.Infrastructure.Persistence.Configuration
 
             builder.Property(s => s.Name)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(300);
 
             builder.Property(s => s.Title)
                 .IsRequired()
                 .HasMaxLength(500);
 
             builder.Property(s => s.ShortDescription)
-                .HasMaxLength(500);
+                .HasColumnType("text");
 
             builder.Property(s => s.Image)
-                .HasMaxLength(200);
+                .HasMaxLength(500);
 
-            builder.Property(s => s.Subtitle);
+            builder.Property(s => s.Subtitle)
+                .HasColumnType("text");
 
-            builder.Property(s => s.ServiceDescription);
+            builder.Property(s => s.ServiceDescription)
+                .HasColumnType("text");
 
-            builder.Property(s => s.ExpertiseDescription);
+            builder.Property(s => s.ExpertiseDescription)
+                .HasColumnType("text");
 
-            builder.Property(s => s.RealizationDescription);
+            builder.Property(s => s.RealizationDescription)
+                .HasColumnType("text");
 
             builder.HasMany(s => s.Contents)
                 .WithOne(c => c.Service)

@@ -16,7 +16,8 @@ namespace AFO.Infrastructure.Persistence.Configuration
                 .HasPrecision(18, 2)
                 .IsRequired();
 
-            builder.Property(p => p.Description);
+            builder.Property(p => p.Description)
+                .HasColumnType("text");
 
             builder.Property(p => p.Includes)
                 .HasColumnType("text[]");
