@@ -8,7 +8,7 @@ namespace AFO.Domain.Entities
     {
         public Guid Id { get; private set; }
         public string Name { get;private set; } = "";
-        public string Logo { get; set; }
+        public string LogoUrl { get; set; } = "";
 
         private Partner() { }
 
