@@ -3,9 +3,10 @@
     public class ServiceExpertise
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public required string Name { get; set; }
+        public required string Description { get; set; }
         public List<string> Contents = [];
+        public int ServiceId;
         public Service Service { get; set; }
 
 

@@ -3,13 +3,14 @@
     public class Processus
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public required string Name { get; set; }
+        public required string Description { get; set; }
         public int Order { get; set; }
-        public string LogoUrl { get; set; } = string.Empty;
-        public string Image { get; set; } = string.Empty;
-        public List<string> Contents = [];
-
+        public string? LogoUrl { get; set; }
+        public string? Image { get; set; }
+        public ICollection<string> Contents = [];
+        public ICollection<ServiceProcessus> ServiceProcessus { get; set; } = [];
+        public ICollection<>
 
         private Processus() { }
     }
