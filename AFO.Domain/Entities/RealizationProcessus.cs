@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AFO.Domain.Entities
+﻿namespace AFO.Domain.Entities
 {
     public class RealizationProcessus
     {
-        public Realization Realization { get; private set; } = null!;
-        public Processus Processus { get; private set; } = null!;
+        public int RealizationId { get; set; }
+        public Realization Realization { get; set; } = null!;
+        public int ProcessusId { get; set; }
+        public Processus Processus { get; set; } = null!;
+
+
         public RealizationProcessus() { }
     }
 }

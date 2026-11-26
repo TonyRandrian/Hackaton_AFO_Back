@@ -6,7 +6,7 @@
         public required string Name { get; set; }
         public required string Description { get; set; }
         public List<string> Contents = [];
-        public int ServiceId;
+        public Guid ServiceId;
         public Service Service { get; set; }
 
 
