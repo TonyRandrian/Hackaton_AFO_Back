@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AFO.Domain.Entities
+﻿namespace AFO.Domain.Entities
 {
-    internal class Partner
+    public class Partner
     {
         public Guid Id { get; private set; }
-        public string Name { get;private set; } = "";
-        public string LogoUrl { get; set; } = "";
+        public required string Name { get; set; }
+        public string? LogoUrl { get; set; }
 
         private Partner() { }
 

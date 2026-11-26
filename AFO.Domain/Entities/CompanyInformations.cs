@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AFO.Domain.Entities
+﻿namespace AFO.Domain.Entities
 {
-    internal class CompanyInformations
+    public class CompanyInformations
     {
-        public string Infos { get; private set; } = "";
-        public string Value { get;private set; } = "";
+        public required string Infos { get; set; }
+        public required string Value { get; set; }
 
         private CompanyInformations() { }
     }

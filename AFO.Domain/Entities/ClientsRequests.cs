@@ -1,12 +1,12 @@
 ﻿namespace AFO.Domain.Entities
 {
-    internal class ClientsRequests
+    public class ClientsRequests
     {
         public Guid Id { get; private set; }
-        public string Email { get; private set; } = "";
-        public string PhoneNumber { get; private set; } = "";
-        public string Message { get; private set; } = "";
-        public string? Objet {  get;private set; }
+        public required string Email { get; set; }
+        public required string PhoneNumber { get; set; }
+        public required string Message { get; set; }
+        public string? Objet {  get; set; }
 
         private ClientsRequests() { }
     }
