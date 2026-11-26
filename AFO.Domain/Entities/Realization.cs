@@ -27,7 +27,7 @@ public class Realization
     public ICollection<RealizationProcessus> RealizationProcessus { get; private set; } = [];
 
     private Realization() { }
-    public Realization(string name,string? shortDescription, string title, string? subTitle, bool isPublic, string projectUrl, string? aboutDescription,string? projectDescription,string? goalDescription)
+    public Realization(string name,string shortDescription, string title, string subTitle, string projectUrl, string aboutDescription,string projectDescription,string goalDescription)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Le nom de la realisation est obligatoire");
@@ -35,6 +35,12 @@ public class Realization
             throw new ArgumentException("Le titre de la realisation est obligatoire");
         if (string.IsNullOrWhiteSpace(projectUrl))
             throw new ArgumentException("Le site vers ce projet de la realisation est obligatoire");
+        if (string.IsNullOrWhiteSpace(shortDescription))
+            throw new ArgumentException("La description de la realisation est obligatoire");
+        if (string.IsNullOrWhiteSpace(subTitle))
+            throw new ArgumentException("La description de la realisation est obligatoire");
+        if (string.IsNullOrWhiteSpace(goalDescription))
+            throw new ArgumentException("La description de la realisation est obligatoire");
         Id = Guid.NewGuid();
         Name = name.Trim();
         ShortDescription = shortDescription;
@@ -45,6 +51,6 @@ public class Realization
         ProjectDescription = projectDescription;
         GoalDescription = goalDescription;
         IsPublic = true; 
-
     }
+
 }
