@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AFO.Infrastructure.Persistence
 {
-    public class AfoDbContext(DbContextOptions<AfoDbContext> options) 
+    public class AfoDbContext(DbContextOptions<AfoDbContext> options)
         : DbContext(options)
     {
 
@@ -23,13 +23,19 @@ namespace AFO.Infrastructure.Persistence
         public DbSet<RealizationProcessus> RealizationProcessus => Set<RealizationProcessus>();
         public DbSet<RealizationImage> RealizationImages => Set<RealizationImage>();
         public DbSet<RealizationImageType> RealizationImageTypes => Set<RealizationImageType>();
+        public DbSet<Blog> Blogs => Set<Blog>();
+        public DbSet<BlogArticle> BlogArticles => Set<BlogArticle>();
+        public DbSet<BlogArticleImages> BlogArticleImages => Set<BlogArticleImages>();
+        public DbSet<Partner> Partners => Set<Partner>();
+        public DbSet<ClientsRequests> ClientsRequests => Set<ClientsRequests>();
+        public DbSet<CompanyInformations> CompanyInformations => Set<CompanyInformations>();
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            
+
         }
     }
 }
