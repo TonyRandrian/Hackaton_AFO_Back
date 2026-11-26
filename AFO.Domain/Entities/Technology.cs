@@ -9,6 +9,8 @@ namespace AFO.Domain.Entities
         public Guid Id { get; private set; }
         public string Name { get; private set; } = "";
         public string LogoUrl { get; private set; } = "";
+        public ICollection<RealizationTechnology> RealizationTechnologies { get; private set; } = [];
+
         private Technology() { }
     }
 }
