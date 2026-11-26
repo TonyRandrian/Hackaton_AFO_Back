@@ -8,8 +8,10 @@ namespace AFO.Domain.Entities
     {
         public Guid Id { get; private set; }
         public string Url { get; private set; } = "";
+        public Guid RealizationId { get; private set; }
         public Realization Realization { get; private set; } = null!;
+        public Guid RealizationImageTypeId { get; private set; }
         public RealizationImageType RealizationImageType { get; private set; } = null!;
-        public RealizationImage() { }
+        private RealizationImage() { }
     }                               
 }

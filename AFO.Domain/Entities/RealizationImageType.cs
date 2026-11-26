@@ -9,6 +9,6 @@ namespace AFO.Domain.Entities
         public Guid Id { get; private set; }
         public string Name { get; private set; } = "";
         public ICollection<RealizationImage> RealizationImages { get; private set; } = [];
-        public RealizationImageType() { }
+        private RealizationImageType() { }
     }
 }
