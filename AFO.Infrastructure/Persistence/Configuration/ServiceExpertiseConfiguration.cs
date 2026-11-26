@@ -15,9 +15,10 @@ namespace AFO.Infrastructure.Persistence.Configuration
 
             builder.Property(se => se.Name)
                 .IsRequired()
-                .HasMaxLength(150);
+                .HasMaxLength(250);
 
             builder.Property(se => se.Description)
+                .HasColumnType("text")
                 .IsRequired();
 
             builder.Property(se => se.Contents)
