@@ -35,7 +35,9 @@ namespace AFO.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
-           
+            modelBuilder.ApplyConfigurationsFromAssembly(
+                typeof(AfoDbContext).Assembly
+            );
         }
     }
 }
