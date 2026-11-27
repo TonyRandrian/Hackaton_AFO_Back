@@ -57,6 +57,11 @@ public class RealizationConfiguration : IEntityTypeConfiguration<Realization>
             .HasForeignKey(r => r.ServiceContentId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(r => r.Service)
+            .WithMany(s => s.Realizations)
+            .HasForeignKey(r => r.ServiceId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         builder.HasMany(r => r.Images)
             .WithOne(i => i.Realization)
             .HasForeignKey(i => i.RealizationId)
