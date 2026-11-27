@@ -3,5 +3,8 @@
     public class CreateServiceContentRequest
     {
         public required string Name { get; set; }
+        public required decimal Price { get; set; }
+        public string? Description { get; set; }
+        public List<string> Includes { get; set; } = [];
     }
 }

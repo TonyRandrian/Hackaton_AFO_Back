@@ -254,33 +254,6 @@ namespace AFO.Infrastructure.Persistence.Migrations
                     b.ToTable("Partners", (string)null);
                 });
 
-            modelBuilder.Entity("AFO.Domain.Entities.Pricing", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.PrimitiveCollection<List<string>>("Includes")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("numeric(18,2)");
-
-                    b.Property<Guid>("ServiceContentId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ServiceContentId");
-
-                    b.ToTable("Pricings", (string)null);
-                });
-
             modelBuilder.Entity("AFO.Domain.Entities.Processus", b =>
                 {
                     b.Property<Guid>("Id")
@@ -514,10 +487,20 @@ namespace AFO.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.PrimitiveCollection<List<string>>("Includes")
+                        .IsRequired()
+                        .HasColumnType("text[]");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
 
                     b.Property<Guid>("ServiceId")
                         .HasColumnType("uuid");
@@ -645,17 +628,6 @@ namespace AFO.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Service");
-                });
-
-            modelBuilder.Entity("AFO.Domain.Entities.Pricing", b =>
-                {
-                    b.HasOne("AFO.Domain.Entities.ServiceContent", "ServiceContent")
-                        .WithMany("Pricings")
-                        .HasForeignKey("ServiceContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ServiceContent");
                 });
 
             modelBuilder.Entity("AFO.Domain.Entities.Realization", b =>
@@ -847,8 +819,6 @@ namespace AFO.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("AFO.Domain.Entities.ServiceContent", b =>
                 {
-                    b.Navigation("Pricings");
-
                     b.Navigation("Realizations");
                 });
 

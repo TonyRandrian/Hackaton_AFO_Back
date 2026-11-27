@@ -14,7 +14,6 @@ namespace AFO.Infrastructure.Persistence
         public DbSet<ServiceProcessus> ServiceProcessus => Set<ServiceProcessus>();
         public DbSet<FAQ> FAQs => Set<FAQ>();
         public DbSet<Feedback> Feedbacks => Set<Feedback>();
-        public DbSet<Pricing> Pricings => Set<Pricing>();
         public DbSet<Realization> Realizations => Set<Realization>();
         public DbSet<Advantage> Advantages => Set<Advantage>();
         public DbSet<RealizationAdvantage> RealizationAdvantages => Set<RealizationAdvantage>();
