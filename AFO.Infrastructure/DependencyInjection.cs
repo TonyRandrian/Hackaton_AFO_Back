@@ -20,6 +20,7 @@ namespace AFO.Infrastructure
                 options.UseNpgsql(connectionString));
             services.AddScoped<IRealizationRepository, RealizationRepository>();
             services.AddScoped<IRealizationImageRepository, RealizationImageRepository>();
+            services.AddScoped<IAdvantageRepository, AdvantageRepository>();
             return services;
         }
     }
