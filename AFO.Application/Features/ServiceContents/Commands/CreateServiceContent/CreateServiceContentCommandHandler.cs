@@ -14,7 +14,12 @@ namespace AFO.Application.Features.ServiceContents.Commands.CreateServiceContent
             if (!await serviceRepository.ExistsAsync(request.ServiceId))
                 return null;
 
-            ServiceContent content = new(request.Name, request.ServiceId);
+            ServiceContent content = new(
+                request.Name, 
+                request.ServiceId,
+                request.Price,
+                request.Description,
+                request.Includes);
 
             await serviceContentRepository.AddAsync(content);
             return content.Id;

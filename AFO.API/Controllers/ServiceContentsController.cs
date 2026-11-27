@@ -36,7 +36,8 @@ namespace AFO.API.Controllers
         [HttpPost("services/{serviceId:guid}/contents")]
         public async Task<IActionResult> Create(Guid serviceId, CreateServiceContentRequest request)
         {
-            Guid? id = await sender.Send(new CreateServiceContentCommand(serviceId, request.Name));
+            Guid? id = await sender.Send(new CreateServiceContentCommand(
+                serviceId, request.Name, request.Price, request.Description, request.Includes));
 
             if (id is null)
                 return NotFound();
@@ -47,7 +48,8 @@ namespace AFO.API.Controllers
         [HttpPut("service-contents/{id:guid}")]
         public async Task<IActionResult> Update(Guid id, UpdateServiceContentRequest request)
         {
-            bool found = await sender.Send(new UpdateServiceContentCommand(id, request.Name));
+            bool found = await sender.Send(new UpdateServiceContentCommand(
+                id, request.Name, request.Price, request.Description, request.Includes));
 
             if (!found)
                 return NotFound();

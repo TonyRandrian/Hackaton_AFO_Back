@@ -16,7 +16,10 @@ namespace AFO.Application.Features.ServiceContents.Queries.GetServiceContentsByS
                 .Select(c => new ServiceContentListResponse
                 {
                     Id = c.Id,
-                    Name = c.Name
+                    Name = c.Name,
+                    Price = c.Price,
+                    Description = c.Description,
+                    Includes = c.Includes
                 })];
         }
     }
