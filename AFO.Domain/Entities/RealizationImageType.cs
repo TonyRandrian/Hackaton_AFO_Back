@@ -6,5 +6,6 @@
         public string Name { get; private set; } = "";
         public ICollection<RealizationImage> RealizationImages { get; private set; } = [];
         private RealizationImageType() { }
+
     }
 }

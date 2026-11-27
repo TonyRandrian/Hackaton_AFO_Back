@@ -1,3 +1,4 @@
+
 using AFO.Application.Features.ServiceContents.Commands.CreateServiceContent;
 using AFO.Infrastructure;
 
@@ -10,24 +11,34 @@ builder.Configuration
         reloadOnChange: true
     );
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Configuration CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSwagger", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateServiceContentCommand).Assembly));
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();     // génère le document JSON de l'API
-    app.UseSwaggerUI();   // affiche la page web
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSwagger");
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

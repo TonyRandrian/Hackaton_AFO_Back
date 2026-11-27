@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using MediatR;
 
-namespace AFO.Application.Features.Advantages.Commands.DeleteRealization
-{
-    internal class UpdateAdvantageCommand
-    {
-    }
-}
+namespace AFO.Application.Features.Advantages.Commands.UpdateAdvantage;
+
+public record UpdateAdvantageCommand( Guid Id, string Name,string? Description) : IRequest<bool>;
