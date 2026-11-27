@@ -24,6 +24,7 @@ namespace AFO.Infrastructure
 
             services.AddScoped<IRealizationRepository, RealizationRepository>();
             services.AddScoped<IRealizationImageRepository, RealizationImageRepository>();
+            services.AddScoped<IAdvantageRepository, AdvantageRepository>();
 
             services.AddScoped<IFAQRepository, FAQRepository>();
 
