@@ -1,4 +1,5 @@
-﻿using AFO.Application.Features.Realizations.Responses;
+﻿using AFO.Application.Features.FAQs.Responses;
+using AFO.Application.Features.Realizations.Responses;
 using AFO.Application.Features.Services.Responses;
 using AFO.Application.Interfaces;
 using MediatR;
@@ -35,6 +36,13 @@ namespace AFO.Application.Features.Services.Queries.GetServiceById
                         Title = r.Title,
                         IsPublic = r.IsPublic,
                         ProjectUrl = r.ProjectUrl
+                    })
+                ],
+                FAQs = [.. service.FAQs
+                    .Select(r => new FAQListResponse{
+                        Id = r.Id,
+                        Question = r.Question,
+                        Answer = r.Answer
                     })
                 ]
             };

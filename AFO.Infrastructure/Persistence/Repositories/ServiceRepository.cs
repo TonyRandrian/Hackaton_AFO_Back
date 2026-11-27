@@ -37,6 +37,7 @@ namespace AFO.Infrastructure.Persistence.Repositories
             return context.Services
                 .AsNoTracking()
                 .Include(s => s.Realizations)
+                .Include(s => s.FAQs)
                 .FirstOrDefaultAsync(s => s.Id == id);
         }
 

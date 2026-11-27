@@ -1,4 +1,5 @@
-﻿using AFO.Application.Features.Realizations.Responses;
+﻿using AFO.Application.Features.FAQs.Responses;
+using AFO.Application.Features.Realizations.Responses;
 
 namespace AFO.Application.Features.Services.Responses
 {
@@ -14,5 +15,6 @@ namespace AFO.Application.Features.Services.Responses
         public string? ExpertiseDescription { get; set; }
         public string? RealizationDescription { get; set; }
         public List<RealizationListResponse> Realizations { get; set; } = [];
+        public List<FAQListResponse> FAQs { get; set; } = [];
     }
 }
