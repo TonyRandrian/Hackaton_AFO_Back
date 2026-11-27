@@ -1,4 +1,6 @@
-﻿namespace AFO.Domain.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace AFO.Domain.Entities
 {
     public class Service
     {
@@ -19,5 +21,13 @@
         public ICollection<Realization> Realizations { get; set; } = [];
 
         private Service() { }
+
+        [SetsRequiredMembers]
+        public Service(string name, string title)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Title = title;
+        }
     }
 }
