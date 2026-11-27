@@ -1,0 +1,7 @@
+﻿
+using AFO.Application.Features.Realizations.Responses;
+using MediatR;
+
+namespace AFO.Application.Features.Realizations.Queries.GetRealizationById;
+
+public record GetRealizationByIdQuery(Guid Id) : IRequest<RealizationResponse?>;
