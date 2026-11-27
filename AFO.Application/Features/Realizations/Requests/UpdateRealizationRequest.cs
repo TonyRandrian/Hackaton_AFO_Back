@@ -13,7 +13,6 @@ public class UpdateRealizationRequest
     public string GoalDescription { get; set; } = string.Empty;
     public List<string> Qualities { get; set; } = [];
     public bool IsPublic { get; set; }
-
     public Guid ServiceId { get; set; }
     public Guid ServiceContentId { get; set; }
 }
