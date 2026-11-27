@@ -15,6 +15,10 @@ namespace AFO.Application.Features.ServiceContents.Commands.UpdateServiceContent
                 return false;
 
             content.Name = request.Name;
+            content.Price = request.Price;
+            content.Description = request.Description;
+            content.Includes = request.Includes;
+
             await serviceContentRepository.UpdateAsync(content);
 
             return true;

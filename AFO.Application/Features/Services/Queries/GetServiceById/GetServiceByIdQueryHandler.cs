@@ -1,4 +1,6 @@
-﻿using AFO.Application.Features.Services.Responses;
+﻿using AFO.Application.Features.FAQs.Responses;
+using AFO.Application.Features.Realizations.Responses;
+using AFO.Application.Features.Services.Responses;
 using AFO.Application.Interfaces;
 using MediatR;
 
@@ -24,7 +26,25 @@ namespace AFO.Application.Features.Services.Queries.GetServiceById
                 Subtitle = service.Subtitle,
                 ServiceDescription = service.ServiceDescription,
                 ExpertiseDescription = service.ExpertiseDescription,
-                RealizationDescription = service.RealizationDescription
+                RealizationDescription = service.RealizationDescription,
+                Realizations = [.. service.Realizations
+                    .Select(r => new RealizationListResponse
+                    {
+                        Id = r.Id,
+                        Name = r.Name,
+                        ShortDescription = r.ShortDescription,
+                        Title = r.Title,
+                        IsPublic = r.IsPublic,
+                        ProjectUrl = r.ProjectUrl
+                    })
+                ],
+                FAQs = [.. service.FAQs
+                    .Select(r => new FAQListResponse{
+                        Id = r.Id,
+                        Question = r.Question,
+                        Answer = r.Answer
+                    })
+                ]
             };
         }
     }

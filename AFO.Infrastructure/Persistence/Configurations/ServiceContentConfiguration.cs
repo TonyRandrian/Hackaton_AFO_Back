@@ -21,11 +21,6 @@ namespace AFO.Infrastructure.Persistence.Configuration
                 .HasForeignKey(sc => sc.ServiceId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(sc => sc.Pricings)
-                .WithOne(p => p.ServiceContent)
-                .HasForeignKey(p => p.ServiceContentId)
-                .OnDelete(DeleteBehavior.Cascade);
-
             builder.HasMany(sc => sc.Realizations)
                 .WithOne(r => r.ServiceContent)
                 .HasForeignKey(r => r.ServiceContentId)

@@ -19,7 +19,10 @@ namespace AFO.Application.Features.ServiceContents.Queries.GetServiceContentById
             {
                 Id = content.Id,
                 Name = content.Name,
-                ServiceId = content.ServiceId
+                ServiceId = content.ServiceId,
+                Price = content.Price,
+                Description = content.Description,
+                Includes = content.Includes,
             };
         }
     }
