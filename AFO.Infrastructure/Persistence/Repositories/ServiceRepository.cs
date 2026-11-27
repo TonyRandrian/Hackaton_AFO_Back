@@ -34,7 +34,10 @@ namespace AFO.Infrastructure.Persistence.Repositories
 
         public Task<Service?> GetByIdAsync(Guid id)
         {
-            return context.Services.FirstOrDefaultAsync(s => s.Id == id);
+            return context.Services
+                .AsNoTracking()
+                .Include(s => s.Realizations)
+                .FirstOrDefaultAsync(s => s.Id == id);
         }
 
         public async Task UpdateAsync(Service service)
