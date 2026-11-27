@@ -18,8 +18,15 @@ namespace AFO.Infrastructure
 
             services.AddDbContext<AfoDbContext>(options =>
                 options.UseNpgsql(connectionString));
+
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+            services.AddScoped<IServiceContentRepository, ServiceContentRepository>();
+
             services.AddScoped<IRealizationRepository, RealizationRepository>();
             services.AddScoped<IRealizationImageRepository, RealizationImageRepository>();
+
+            services.AddScoped<IFAQRepository, FAQRepository>();
+
             return services;
         }
     }
